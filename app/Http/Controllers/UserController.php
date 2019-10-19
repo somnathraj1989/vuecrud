@@ -21,11 +21,11 @@ class UserController extends Controller
         // echo $id; exit;
         //$user = User::findOrFail($id);
 
-        //$sendEmailJob = new SendReminderEmail();
+        $sendEmailJob = new SendReminderEmail();
 
         // or if you want a specific queue
 
-        $sendEmailJob = (new SendReminderEmail())->onQueue('');
+        //$sendEmailJob = (new SendReminderEmail())->onQueue('');
 
         // or if you want to delay it
 

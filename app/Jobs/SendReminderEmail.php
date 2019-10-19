@@ -30,14 +30,14 @@ class SendReminderEmail implements ShouldQueue
      */
     public function handle()
     {
-        $this->release(2);
+        //$this->release(2);
         //
         for($i=1;$i<=50000;$i++){
-        $data = new Student ();
-        $data->name = 'ppppppp'.$i;
-		$data->age = $i;
-		$data->profession = 'pppppp'.$i;
-        $data->save ();
+            $data = new Student ();
+            $data->name = 'ppppppp'.$i;
+            $data->age = $i;
+            $data->profession = 'pppppp'.$i;
+            $data->save ();
         }
     }
 }
