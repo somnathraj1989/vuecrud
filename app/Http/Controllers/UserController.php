@@ -6,6 +6,7 @@ use App\User;
 use Illuminate\Http\Request;
 use App\Jobs\SendReminderEmail;
 use App\Http\Controllers\Controller;
+use App\Events\Event;
 
 class UserController extends Controller
 {
@@ -16,7 +17,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function sendReminderEmail(Request $request, $id)
+    public function sendReminderEmail(Request $request)
     {
         // echo $id; exit;
         //$user = User::findOrFail($id);
@@ -33,5 +34,10 @@ class UserController extends Controller
 
         $this->dispatch($sendEmailJob);
         return view('job');
+    }
+
+    public function sendEvent(Request $request){
+        broadcast(new Event())->toOthers();
+        return view('event');
     }
 }
