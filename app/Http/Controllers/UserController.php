@@ -37,7 +37,7 @@ class UserController extends Controller
     }
 
     public function sendEvent(Request $request){
-        broadcast(new Event())->toOthers();
+        broadcast(new Event('Hi I am comming!!!'))->toOthers();
         return view('event');
     }
 }

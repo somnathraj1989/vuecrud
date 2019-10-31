@@ -19,9 +19,9 @@ class Event implements ShouldBroadcast
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($msg)
     {
-        $this->msg = 'Event is Comming!!!';
+        $this->msg = $msg;
     }
 
     /**
@@ -32,6 +32,11 @@ class Event implements ShouldBroadcast
     public function broadcastOn()
     {
         return new Channel('test_channel');
+    }
+
+    public function BroadcastAs()
+    {
+        return 'test_event';
     }
 
     public function broadcastWith()
